@@ -1,0 +1,5 @@
+mailboxes !
+mailboxes =IDEEGEO/INBOX.server
+mailboxes =IDEEGEO/INBOX.git
+mailboxes =IDEEGEO/INBOX.hostmaster
+

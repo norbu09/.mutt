@@ -1,0 +1,54 @@
+###################
+### mutt config ###
+###################
+
+
+## caches
+set header_cache = "~/.mutt/cache/headers"
+set message_cachedir=~/.mutt/cache/bodies
+set certificate_file=~/.mutt/certificates
+
+## misc stuff
+set move = no
+#set charset="utf8"        # Set character Set
+set charset="iso-8859-1"       # Leave my bits alone :)
+
+
+# address search
+set query_command="/usr/local/bin/lbdbq '%s'"
+
+## list view
+set sort = 'threads'
+set sort_aux=reverse-date-received # Neueste Mails sind oben
+set nostrict_threads
+#set sort_aux = 'last-date-received'
+set status_format="%r `echo $USER` on [%f] [%m mails] %?n?[%n new]?%?t?[%t tag]?%?d?[%d del]?%> %v"             # Statusline ... a strange one.
+set tilde                               # Fill out messages with '~'.
+set pager_stop                          # Don't skip msgs on next page.
+set ascii_chars             # Use + and - and > not the clever
+
+## mail view
+ignore "Authentication-Results:"
+ignore "DomainKey-Signature:"
+ignore "DKIM-Signature:"
+hdr_order Date From To Cc
+set pager_context=3            # 3 lines of context in pager
+set pager_format="%Z[%C(%m)]^%.50s%>^[%l]"      # Format der 'Mailanzeigestatuszeile'
+set pager_stop          # Am Ende der Mail nicht zur naechsten springen
+set nomark_old
+
+# editor config
+set editor='vim +/^$ ++1'
+set edit_hdrs           # let me edit the message headers
+set quote_regexp="^> " # Das ist _der_ quote Regex ...!!
+set record=+sent                # save a copyself in 'sent'
+set include=yes         # Don't ask 'include message in reply'
+
+## my colour definition
+source ~/.mutt/colours
+## account definitions
+source ~/.mutt/accounts
+## mailbox definitions
+source ~/.mutt/mailboxes
+## pgp definitions
+source ~/.mutt/pgp

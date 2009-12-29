@@ -1,0 +1,67 @@
+# -*- muttrc -*-
+#
+# Colour settings for mutt.
+#
+# found on http://www.davep.org/mutt/muttrc/
+#
+
+# Default color definitions
+color hdrdefault white        black
+color quoted     red          black
+color signature  brightwhite  black
+color indicator  brightyellow  red
+color attachment white        green
+color error      red          black
+color message    blue         black
+color search     brightblack  magenta
+color status     brightyellow blue
+color tree       red          black
+color normal     white         black
+color tilde      green        black
+color bold       brightyellow black
+color markers    red          black
+
+# Colour definitions when on a mono screen
+mono bold      bold
+mono underline underline
+mono indicator reverse
+
+# Colours for items in the reader
+color header brightwhite  black "^Date:"
+color header green        black "^(From|To|Cc):"
+color header red          black "^(Subject):"
+color header red          black "^X-Junk*:"
+color header blue         black "^X-"
+mono  header bold             "^(From|Subject|X-Junk*):"
+
+# Colours for items in the index
+color index brightwhite  black ~N
+color index brightgreen black "~N ~x \"lenz\.(ideegeo\.com\|norbu09\.org)\""
+color index red         black ~F
+color index white       green ~T
+color index brightblack white ~D
+mono  index bold              ~N
+mono  index bold              ~F
+mono  index bold              ~T
+mono  index bold              ~D
+
+# Highlights inside the body of a message.
+
+# URLs
+color body brightblue  black "(http|https|ftp|news|telnet|finger)://[^ \">\t\r\n]*"
+color body brightblue  black "mailto:[-a-z_0-9.]+@[-a-z_0-9.]+"
+mono  body bold              "(http|https|ftp|news|telnet|finger)://[^ \">\t\r\n]*"
+mono  body bold              "mailto:[-a-z_0-9.]+@[-a-z_0-9.]+"
+
+# email addresses
+color body brightblue  black "[-a-z_0-9.%$]+@[-a-z_0-9.]+\\.[-a-z][-a-z]+"
+mono  body bold              "[-a-z_0-9.%$]+@[-a-z_0-9.]+\\.[-a-z][-a-z]+"
+
+# Various smilies and the like
+color body brightgreen black "<[Gg]>"                            # <g>
+color body brightgreen black "<[Bb][Gg]>"                        # <bg>
+color body brightgreen black " [;:]-*[)>(<|]"                    # :-) etc...
+color body brightblue  black "(^|[[:space:]])\\*[^[:space:]]+\\*([[:space:]]|$)" # *Bold* text.
+color body brightblue  black "(^|[[:space:]])_[^[:space:]]+_([[:space:]]|$)" # _Underlined_ text.
+color body brightblue  black "(^|[[:space:]])/[^[:space:]]+/([[:space:]]|$)" # /Italic/ text.
+

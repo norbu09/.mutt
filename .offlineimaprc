@@ -1,0 +1,50 @@
+# Sample minimal config file.  Copy this to ~/.offlineimaprc and edit to
+# suit to get started fast.
+
+[general]
+metadata = ~/.offlineimap
+accounts = IDEEGEO
+maxsyncaccounts = 2
+# max number of concurrent connections
+ui = Curses.Blinkenlights, TTY.TTYUI,
+     Noninteractive.Basic, Noninteractive.Quiet
+
+#### GMAIL Account Settings ####
+[Account GMAIL]
+localrepository = LocalGmail
+remoterepository = RemoteGmail
+autorefresh = 10
+# minutes until next sync
+quick = 5
+# number of 'quick' syncs between full syncs, saves time
+
+[Repository LocalGmail]
+type = Maildir     # format of the local repository. choose Maildir if you will use Mutt
+localfolders = ~/.maildb/GMAIL  # location of the email
+restoreatime = no   # don't let offlineimap touch the atime of files
+
+[Repository RemoteGmail]
+type = IMAP
+remotehost = imap.gmail.com
+remoteuser = greg.grossmeier@gmail.com
+remotepass = yep
+ssl = yes
+
+#### IDEEGEO Account Settings ####
+[Account IDEEGEO]
+localrepository = LocalIdeegeo
+remoterepository = RemoteIdeegeo
+autorefresh = 10
+quick = 5
+
+[Repository LocalIdeegeo]
+type = Maildir
+localfolders = ~/.mail/IDEEGEO
+restoreatime = no
+
+[Repository RemoteIdeegeo]
+type = IMAP
+remoteuser = lenz@ideegeo.com
+remotehost = mail.office.ideegeo.com
+remotepass = blubb
+ssl = yes
